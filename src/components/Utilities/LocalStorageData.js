@@ -2,15 +2,37 @@
 
 const addToDb = (id) => {
 
-    const exists = localStorage.getItem('shopping-cart');
+    const exists = getDb();
+    let shopping_cart = {};
     if (!exists) {
-        localStorage.setItem(id, 1);
+        shopping_cart[id] = 1;
 
     }
     else {
-        const newCount = parseInt(exists) + 1;
-        localStorage.setItem(id, newCount);
+        shopping_cart = JSON.parse(exists);
+        if (shopping_cart[id]) {
+            const newCount = shopping_cart[id] + 1;
+            shopping_cart[id] = newCount;
+        }
+        else {
+            shopping_cart[id] = 1;
+        }
     }
 
+    localStorage.setItem('shopping-cart', JSON.stringify(shopping_cart));
 };
-export { addToDb };
+
+const getDb = () => localStorage.getItem('shopping-cart');
+
+const removeData = (id) => {
+    const exists = getDb();
+    if (!exists) {
+
+    }
+    else {
+        const shopping_cart = JSON.parse(exists);
+        delete shopping_cart[id];
+        localStorage.setItem('shopping-cart', JSON.stringify(shopping_cart));
+    }
+}
+export { addToDb, removeData };
