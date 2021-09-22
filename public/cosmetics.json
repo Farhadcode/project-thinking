@@ -1,0 +1,27 @@
+[
+    {
+      "id":1,
+      "name":"Alta",
+      "price":50
+    },
+    {
+      "id":2,
+      "name":"Nail Polish",
+      "price":100
+    },
+    {
+      "id":3,
+      "name":"Churi",
+      "price":80
+    },
+    {
+      "id":4,
+      "name":"Lipe Strick",
+      "price":200
+    },
+    {
+      "id":5,
+      "name":"Payle",
+      "price":155
+    }
+  ]
